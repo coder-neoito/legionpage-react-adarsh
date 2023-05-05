@@ -1,3 +1,4 @@
+import User from "./components/User";
 import { Grid, Stack } from "@mui/material";
 
 const userData = {
@@ -15,6 +16,7 @@ const userData = {
 export default function App() {
   return (
     <Stack gap={3}>
+      <User userData={userData} />
       <Grid container spacing={5}>
         <Grid item xs={8}></Grid>
       </Grid>
