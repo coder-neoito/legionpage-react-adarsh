@@ -8,12 +8,15 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const friends = useMemo(
-    () => usersData.filter((user) => user.userName.includes(searchQuery)),
+    () =>
+      usersData.filter((user) =>
+        user.userName.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
     [searchQuery]
   );
 
   return (
-    <Stack gap={2}>
+    <Stack gap={2} p={3}>
       <Stack
         gap={2}
         direction="row"
