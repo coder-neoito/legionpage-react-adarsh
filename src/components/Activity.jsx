@@ -13,7 +13,7 @@ const Activity = ({ activity }) => {
     reviewsCount,
   } = activity;
   return (
-    <Stack gap={2}>
+    <Stack gap={2} p={1} bgcolor="hsl(0,0%,90%)">
       <Grid container spacing={3}>
         <Grid item xs={9}>
           <Stack direction="row" gap={1}>
@@ -42,51 +42,53 @@ const Activity = ({ activity }) => {
           </Stack>
         </Grid>
       </Grid>
-      <Stack direction="row" gap={2} alignItems="center">
-        <Typography variant="body2">Achievement Progress</Typography>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-        >{`${progress} of ${total}`}</Typography>
-        <Box sx={{ flex: 1 }}>
-          <LinearProgress variant="determinate" value={75} />
-        </Box>
-        <Stack direction="row" gap={0.5}>
-          {images.slice(0, 3).map((image, i) => (
-            <Avatar
-              src={image}
-              alt=""
-              key={image + i}
-              sx={{
-                width: "40px",
-                height: "40px",
-                borderRadius: 0,
-              }}
-            />
-          ))}
-          {images.length > 3 && (
-            <Stack
-              alignItems="center"
-              justifyContent="center"
-              sx={{
-                width: "40px",
-                height: "40px",
-                bgcolor: "gray",
-                color: "white",
-              }}
-              p={0.5}
-            >
-              <Typography>{images.length} +</Typography>
-            </Stack>
-          )}
+      <Stack gap={2} p={1} bgcolor="hsl(0,0%,85%)">
+        <Stack direction="row" gap={2} alignItems="center">
+          <Typography variant="body2">Achievement Progress</Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+          >{`${progress} of ${total}`}</Typography>
+          <Box sx={{ flex: 1 }}>
+            <LinearProgress variant="determinate" value={75} />
+          </Box>
+          <Stack direction="row" gap={0.5}>
+            {images.slice(0, 3).map((image, i) => (
+              <Avatar
+                src={image}
+                alt=""
+                key={image + i}
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: 0,
+                }}
+              />
+            ))}
+            {images.length > 3 && (
+              <Stack
+                alignItems="center"
+                justifyContent="center"
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  bgcolor: "gray",
+                  color: "white",
+                }}
+                p={0.5}
+              >
+                <Typography>{images.length} +</Typography>
+              </Stack>
+            )}
+          </Stack>
         </Stack>
+        {!!reviewsCount && (
+          <>
+            <Divider />
+            <Typography variant="body2">Review {reviewsCount}</Typography>
+          </>
+        )}
       </Stack>
-      {!!reviewsCount && (
-        <>
-          <Divider />
-          <Typography variant="body2">Review {reviewsCount}</Typography>
-        </>
-      )}
     </Stack>
   );
 };
