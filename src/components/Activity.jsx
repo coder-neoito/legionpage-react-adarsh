@@ -65,20 +65,28 @@ const Activity = ({ activity }) => {
             />
           ))}
           {images.length > 3 && (
-            <Typography
+            <Stack
+              alignItems="center"
+              justifyContent="center"
               sx={{
-                aspectRatio: "1/1",
-                flexShrink: 0,
+                width: "40px",
+                height: "40px",
+                bgcolor: "gray",
+                color: "white",
               }}
               p={0.5}
             >
-              {images.length} +
-            </Typography>
+              <Typography>{images.length} +</Typography>
+            </Stack>
           )}
         </Stack>
       </Stack>
-      <Divider />
-      <Typography variant="body2">Review {reviewsCount}</Typography>
+      {!!reviewsCount && (
+        <>
+          <Divider />
+          <Typography variant="body2">Review {reviewsCount}</Typography>
+        </>
+      )}
     </Stack>
   );
 };
